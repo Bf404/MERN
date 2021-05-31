@@ -20,9 +20,16 @@ const UserForm = p => {
     };
     const fnameValidator = e =>{
         setFirstname(e.target.value);
-        if(e.target.value.length < 2 )
+        if(e.target.value !== '')
         {
-            setFnError("First Name must be at least 2 characters!");
+            
+            if(e.target.value.length < 2 )
+            {
+                setFnError("First Name must be at least 2 characters!");
+            }
+            else{
+                setFnError('');
+            }
         }
         else{
             setFnError('');
@@ -30,45 +37,73 @@ const UserForm = p => {
     };
     const lnameValidator = e =>{
         setLastname(e.target.value);
-        if(e.target.value.length < 2 )
+        if(e.target.value !== '')
         {
-            setlnError("Last Name must be at least 2 characters!");
+            if(e.target.value.length < 2 )
+            {
+                setlnError("Last Name must be at least 2 characters!");
+            }
+            else{
+                setlnError('');
+            }
         }
+
         else{
             setlnError('');
-        }
+        }    
     };
 
     const emailValidator = e =>{
         setEmail(e.target.value);
-        if(e.target.value.length < 5 )
+        if(e.target.value !== '')
         {
-            setEmailError("Email must be at lease 5 characters!");
+            if(e.target.value.length < 5 )
+            {
+                setEmailError("Email must be at lease 5 characters!");
+            }
+            else{
+                setEmailError('');
+            }
         }
         else{
             setEmailError('');
-        }
+        }    
+    
     };
 
     const passValidator = e =>{
         setPassword(e.target.value);
-        if(e.target.value.length < 8 )
-        {
-            setPassError("Password must be at lease 8 characters!");
+        if(e.target.value !== '')
+        {  
+            if(e.target.value.length < 8 )
+            {
+                setPassError("Password must be at lease 8 characters!");
+            }
+            else{
+                setPassError('');
+            }
+
         }
         else{
             setPassError('');
-        }
+        }   
+
     };
     const conpassValidator = e =>{
         setConpassword(e.target.value);
-        if(e.target.value !== password )
-        {
-            setConpassError("Password must match!");
+        if(e.target.value !== '')
+        {  
+            if(e.target.value !== password )
+            {
+                setConpassError("Password must match!");
+            }
+            else{
+                setConpassError('');
+            }
         }
         else{
             setConpassError('');
-        }
+        }   
     };
 
 
