@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const Tabs = props =>{
     const {items} = props;
-    const [selectedIdx, setSelectedIdx]  = useState(1);
+    const [selectedIdx, setSelectedIdx]  = useState(0);
 
     const contStyle = {
         border: 'solid 1px black',
