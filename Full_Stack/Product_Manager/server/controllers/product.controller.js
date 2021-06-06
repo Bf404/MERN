@@ -18,7 +18,13 @@ module.exports = {
 
     AllProducts: (req, res) => {
         Product.find()
-        .then(allProducts => res.json({products: allProducts}))
+        .then(allProducts => res.json(allProducts))
+        .catch(err => res.json({message: "somtething went wrong! " + err}));
+    },
+
+    getProduct: (req, res) => {
+        Product.findOne({_id: req.params.id})
+        .then(product => res.json(product))
         .catch(err => res.json({message: "somtething went wrong! " + err}));
     }
 
