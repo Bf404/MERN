@@ -1,0 +1,28 @@
+git bash:
+
+mkdir example
+
+cd example 
+
+npm init -y
+
+npm install express mongoose cors
+
+touch server.js
+
+mkdir server
+cd server
+mkdir config
+mkdir controllers
+mkdir models
+mkdir routes
+
+cd ..
+
+npx create-react-app client (on example dir)
+
+cd client
+
+npm install axios
+
+npm install @reach/router  OR  npm install --save @reach/router --legacy-peer-deps
