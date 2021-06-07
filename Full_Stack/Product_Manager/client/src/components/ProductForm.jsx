@@ -3,19 +3,15 @@ import axios from 'axios'
 import { Button, Form } from 'react-bootstrap';
 
 const ProductForm = props => {
-    const [title, setTitle] = useState("Loading... ");
-    const [price, setPrice] = useState("Loading... ");
-    const [desc, setDesc] = useState("Loading... ");
+    const {onSubmit, type} = props;
+    const [title, setTitle] = useState(props.title);
+    const [price, setPrice] = useState(props.price);
+    const [desc, setDesc] = useState(props.desc);
 
     
-    const formHandelr= () => {
-        axios.post("http://localhost:8000/api/products/new", {
-            title,
-            price,
-            desc
-        })
-        .then( res => console.log(res))
-        .catch( err => console.log(err));
+    const formHandelr= (e) => {
+        e.preventDefault();
+        onSubmit({title, price, desc});
     }
 
     return(
@@ -25,20 +21,20 @@ const ProductForm = props => {
             <Form onSubmit={formHandelr}>
             <Form.Group >
                 <Form.Label>Title: </Form.Label>
-                <Form.Control type="text" onChange={ (e) => setTitle(e.target.value) } />
+                <Form.Control type="text" value = {title} onChange={ (e) => setTitle(e.target.value) } />
             </Form.Group>
 
             <Form.Group >
                 <Form.Label>Price: </Form.Label>
-                <Form.Control type="text" onChange={ (e) => setPrice(e.target.value) } />
+                <Form.Control type="text" value = {price} onChange={ (e) => setPrice(e.target.value) } />
             </Form.Group>
 
             <Form.Group >
                 <Form.Label>Description: </Form.Label>
-                <Form.Control type="text" onChange={ (e) => setDesc(e.target.value) } />
+                <Form.Control type="text" value = {desc} onChange={ (e) => setDesc(e.target.value) } />
             </Form.Group>
             
-            <Button variant="primary" type="submit"> Create </Button>
+            <Button variant="primary" type="submit"> {type} </Button>
             </Form>
             </div>
             
