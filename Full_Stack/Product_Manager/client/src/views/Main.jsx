@@ -13,12 +13,15 @@ const Main = props =>{
         axios.get('http://localhost:8000/api/products')
         .then( res =>{ setProducts(res.data); setLoaded(true);})
         .catch( err => console.log(err));
-    },[])
+    },[products]);
+
+    const removeFromDom = productId => {
+        setProducts(products.filter(product => product._id !== productId));
+    }
     return(
         <div>
-            
             <ProductForm />
-            {lodaed && <ProductList products={products} />}
+            {lodaed && <ProductList products={products}  removeFromDom={removeFromDom}/>}
         </div>
         
     )
