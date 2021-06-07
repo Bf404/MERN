@@ -2,7 +2,6 @@ import React from 'react';
 import {Link} from '@reach/router'
 import {Button} from 'react-bootstrap'
 import DeleteButton from './DeleteButton';
-// import axios from 'axios';
 
 const ProductList = ({products, removeFromDom}) => {
 
